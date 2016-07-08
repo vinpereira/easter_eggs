@@ -37,14 +37,21 @@ egggif4.style.width = "300px";
 egggif4_container.appendChild(egggif4);
 
 
+var egggif5 = document.createElement("img");
+egggif5.src = "http://1.bp.blogspot.com/-o9MGphc_jgw/UVSo11dql8I/AAAAAAAALIo/IWWSBoxTDFg/s1600/thumbs-up.gif";
+egggif5.id = "egggif5";
+egggif5.style.display = "none";
+
+
 document.getElementsByTagName("body")[0].appendChild(egggif);
 document.getElementsByTagName("body")[0].appendChild(egggif2);
 document.getElementsByTagName("body")[0].appendChild(egggif3d);
 document.getElementsByTagName("body")[0].appendChild(egggif4_container);
+document.getElementsByTagName("body")[0].appendChild(egggif5);
 
 window.onload = function(){
 
-    $("#egggif, #egggif2").css({
+    $("#egggif, #egggif2, #egggif5").css({
         "position": "absolute",
         "top": "33%",
         "left": "25%",
@@ -68,7 +75,7 @@ window.onload = function(){
 
     var egg = new Egg();
     egg.addCode("up,up,down,down,left,right,left,right,b,a", function() {
-        jQuery('#egggif').fadeIn(500, function() {
+        $('#egggif').fadeIn(500, function() {
             window.setTimeout(function() {
                 jQuery('#egggif').hide();
             }, 5000);
@@ -94,6 +101,15 @@ window.onload = function(){
             });
         }, 5000);
     }, "dinofauro");
+
+
+    egg.addCode("t,a,p,r,o,n,t,o", function() {
+        $('#egggif5').fadeIn(500, function() {
+            window.setTimeout(function () {
+                $('#egggif5').hide();
+            }, 3500);
+        });
+    }, "ta-pronto");
 
     egg.addHook(function(){
         console.log("Hook called for: " + this.activeEgg.keys);
