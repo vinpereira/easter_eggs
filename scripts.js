@@ -17,7 +17,6 @@ egggif3d.id = "egggif3d";
 egggif3d.style.display = "none";
 
 
-
 var egggif4_container = document.createElement("div");
 egggif4_container.id = 'egggif4_container';
 var egggif4_title = document.createElement("h1");
@@ -37,6 +36,12 @@ egggif4.style.width = "300px";
 egggif4_container.appendChild(egggif4);
 
 
+var egg_jequiti = document.createElement("img");
+egg_jequiti.src = "https://pbs.twimg.com/profile_images/461593982661718016/fr1v4YpS.jpeg";
+egg_jequiti.id = "egg_jequiti";
+egg_jequiti.style.display = "none";
+
+
 var egggif5 = document.createElement("img");
 egggif5.src = "http://1.bp.blogspot.com/-o9MGphc_jgw/UVSo11dql8I/AAAAAAAALIo/IWWSBoxTDFg/s1600/thumbs-up.gif";
 egggif5.id = "egggif5";
@@ -47,6 +52,7 @@ document.getElementsByTagName("body")[0].appendChild(egggif);
 document.getElementsByTagName("body")[0].appendChild(egggif2);
 document.getElementsByTagName("body")[0].appendChild(egggif3d);
 document.getElementsByTagName("body")[0].appendChild(egggif4_container);
+document.getElementsByTagName("body")[0].appendChild(egg_jequiti);
 document.getElementsByTagName("body")[0].appendChild(egggif5);
 
 window.onload = function(){
@@ -71,6 +77,13 @@ window.onload = function(){
       "right": "-300px",
       "width": "300px",
       "display": "none"
+    });
+
+    $("#egg_jequiti").css({
+        "position": "absolute",
+        "display": "none",
+        "width": "100%",
+        "height": "100%"
     });
 
     var egg = new Egg();
@@ -102,6 +115,13 @@ window.onload = function(){
         }, 5000);
     }, "dinofauro");
 
+    egg.addCode("j,e,q,u,i,t,i", function() {
+      $('#egg_jequiti').show(5, function() {
+          window.setTimeout(function() {
+            $('#egg_jequiti').hide();
+          }, 5);
+      });
+    }, "jequiti");
 
     egg.addCode("t,a,p,r,o,n,t,o", function() {
         $('#egggif5').fadeIn(500, function() {
@@ -138,7 +158,7 @@ function loadJS(src_js){
     head.appendChild(newJS);
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 // Easter Egg que funfa com touch
 var MyEasterEgg = function (callback) {
   var my_egg = {
