@@ -16,9 +16,31 @@ egggif3d.src = "http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/
 egggif3d.id = "egggif3d";
 egggif3d.style.display = "none";
 
+
+
+var egggif4_container = document.createElement("div");
+egggif4_container.id = 'egggif4_container';
+var egggif4_title = document.createElement("h1");
+egggif4_title.innerHTML = "ICOLAFORA";
+egggif4_title.style.color = "orange";
+egggif4_title.style.fontSize = "50px";
+egggif4_title.style.fontWeight = "bold";
+
+egggif4_container.appendChild(egggif4_title);
+egggif4_container.style.display = "none";
+
+
+var egggif4 = document.createElement("img");
+egggif4.src = "http://hojeemdia.com.br/polopoly_fs/1.184830!/image/image.jpg_gen/derivatives/landscape_653/image.jpg";
+egggif4.id = "egggif4";
+egggif4.style.width = "300px";
+egggif4_container.appendChild(egggif4);
+
+
 document.getElementsByTagName("body")[0].appendChild(egggif);
 document.getElementsByTagName("body")[0].appendChild(egggif2);
 document.getElementsByTagName("body")[0].appendChild(egggif3d);
+document.getElementsByTagName("body")[0].appendChild(egggif4_container);
 
 window.onload = function(){
 
@@ -34,6 +56,14 @@ window.onload = function(){
         "top": "25%",
         "left": "40%",
         "display": "none"
+    });
+
+    $("#egggif4_container").css({
+      "position": "absolute",
+      "bottom": "0px",
+      "right": "-300px",
+      "width": "300px",
+      "display": "none"
     });
 
     var egg = new Egg();
@@ -52,6 +82,18 @@ window.onload = function(){
             }, 3500);
         });
     }, "magic");
+
+    egg.addCode("d,i,n,o,f,a,u,r,o", function() {
+        $('#egggif4_container').show(200).animate({
+            "right": "110%"
+        }, 5000);
+        window.setTimeout(function () {
+
+            $('#egggif4_container').hide(100).css({
+              "right": "-300px"
+            });
+        }, 5000);
+    }, "dinofauro");
 
     egg.addHook(function(){
         console.log("Hook called for: " + this.activeEgg.keys);
@@ -75,6 +117,7 @@ function loadJS(src_js){
     var newJS = document.createElement("script");
     newJS.type = "text/javascript";
     newJS.src = src_js;
+    newJS.assync = "true";
     var head = document.getElementsByTagName("head")[0];
     head.appendChild(newJS);
 }
